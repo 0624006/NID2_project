@@ -1,0 +1,235 @@
+@import '../style_All';
+$width_li: 11vw;
+$height_li: 26vh;
+$background_color: linear-gradient(#1c2a3f 0%,#1c2a3f 50%, #024285 100%);;
+$ui_border: white;
+$ui_borderC: yellow;
+$bg:#1c2a3f;
+
+$constellation_url: '../../asset/ConstellationCard';
+
+*{
+    justify-content: center;    
+}
+
+body{
+    background:$background_color;
+}
+
+.col-12{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    display: flex;
+    justify-content: center;
+}
+.ul_bg{
+    display: flex;
+    width: 63%;
+    height: 87%;
+    background: rgba(255,255,255,0.2);
+}
+
+ul{
+    margin: 0 0;
+    li{
+        font-size: $fontsize*3;
+        list-style-type: none;
+        width: $width_li;
+        height: $height_li;
+        position: absolute;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:nth-child(1){
+            background-image: url('#{$constellation_url}/Aries_front.svg');
+            transform: translate(-272%, -158%);
+        }
+        &:nth-child(2){
+            background-image: url('#{$constellation_url}/Taurus_front.svg');
+            transform: translate(-161%, -158%);
+        }
+        &:nth-child(3){
+            background-image: url('#{$constellation_url}/Gemini_front.svg');
+            transform: translate(-50%, -158%);
+        }
+        &:nth-child(4){
+            background-image: url('#{$constellation_url}/Cancer_front.svg');
+            transform: translate(61%, -158%);
+        }
+        &:nth-child(5){
+            background-image: url('#{$constellation_url}/Leo_front.svg');
+            transform: translate(172%, -158%);
+        }
+        &:nth-child(6){
+            background-image: url('#{$constellation_url}/Virgo_front.svg');
+            transform: translate(172%, -50%);
+        }
+        &:nth-child(7){
+            background-image: url('#{$constellation_url}/Libra_front.svg');
+            transform: translate(172%, 58%);
+        }
+        &:nth-child(8){
+            background-image: url('#{$constellation_url}/Scorpio_front.svg');
+            transform: translate(61%, 58%);
+        }
+        &:nth-child(9){
+            background-image: url('#{$constellation_url}/Sagittarius_front.svg');
+            transform: translate(-50%, 58%);
+        }
+        &:nth-child(10){
+            background-image: url('#{$constellation_url}/Capricorn_front.svg');
+            transform: translate(-161%, 58%);
+        }
+        &:nth-child(11){
+            background-image: url('#{$constellation_url}/Aquarius_front.svg');
+            transform: translate(-272%, 58%);
+        }
+        &:nth-child(12){
+            background-image: url('#{$constellation_url}/Pisces_front.svg');
+            transform: translate(-272%, -50%);
+        }
+        &:nth-child(13){  
+            background-image: url('#{$constellation_url}/start.svg');
+            width: $width_li*3.2;
+            transform: translate(-50%, -50%);            
+        }
+        &.active{
+            z-index: 10;   
+            box-shadow: 0px 0px 2vh $ui_borderC;
+            &.disapp{
+                animation: autoshow 1s ease forwards;  
+            }
+            @keyframes autoshow{
+                0%{
+                    z-index: 10;                     
+                }
+                100%{
+                    z-index: -10; 
+                    background-color: rgba(255,255,255,1);
+                }
+            }
+        }
+    }
+}
+
+.card_msg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    z-index: -10;
+    opacity: 0;
+    background: rgba($bg,0.5);
+    box-shadow: rgba(white,0.2)  0px 0px 12vh 8vh inset;
+}
+@keyframes card_msg{
+    0%{
+        z-index: 10;
+        opacity: 0;
+    }
+    100%{
+        z-index: 10;
+        opacity: 1;
+    }
+}
+
+
+.flip3D{
+    display: flex;
+}
+.flip3D > div {    
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.flip3D > .front{
+    position:absolute;
+	transform: perspective( 9999px ) rotateY( 0deg );
+    width: 30vw;
+    height: 70vh;    
+    backface-visibility: hidden;
+}
+.flip3D > .back{
+    position:absolute;
+    transform: perspective( 9999px ) rotateY( 180deg );
+    width: 30vw;
+    height: 70vh;   
+    backface-visibility: hidden;
+    >div{
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        bottom: 12%;
+        >p{
+            color: #fcebdc;
+            font-size: $fontsize*4;
+            display: flex;
+            width: 100%;
+            height: 80%;
+            text-align: start;
+            justify-content: start;
+            padding-left: 23%;
+            padding-top: 4%;
+            margin-bottom: 0;
+            font-weight:bold;
+        }
+        >input{
+            background: transparent;
+            border: transparent;
+            color: #FFDAB7;
+            font-size: 2.5rem;
+            margin-left: 3rem;
+            &:hover{
+                text-shadow: 0px 0px 5px white;
+            }
+            &:nth-child(2){
+                margin-left: 0rem;
+            }
+        }
+    }    
+}
+@keyframes front{    
+    100%{
+        transform: perspective( 9999px ) rotateY( -180deg );
+    } 
+}
+@keyframes back{	
+    100%{
+        transform: perspective( 9999px ) rotateY( 0deg );
+    } 
+}
+
+/*click me*/
+.click{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: $nextBtn_height;
+}
+
+.btn{
+    background: white;
+    width: $btn_WH;
+    height: $btn_WH;
+    font-size: $fontsize*2.5;
+}
+
+.col-12.click > input{    
+    position: absolute;
+    left: 5%;
+    color: white;
+    background: transparent;
+    border: 1px solid white;
+}
+
+.start_hover{
+    cursor: pointer; 
+    &:hover{
+         filter: drop-shadow(0px 0px 0.3rem white);
+    }
+}
