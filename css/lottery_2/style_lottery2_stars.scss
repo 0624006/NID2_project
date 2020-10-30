@@ -1,0 +1,154 @@
+
+$shadow:null;
+$n: 10; // 流星數量
+
+@function boxShadow($sh: 0, $sha_name: null) {
+    @for $i from 1 through $sh {
+        $random-x: random(1000000) * 0.0001vw;
+        $random-y: random(1000000) * 0.0001vh;
+        $sha_name:$sha_name,#{$random-x $random-y #FFF};
+    }
+    @return $sha_name;
+}
+
+$shadow1:boxShadow(500, $shadow);
+$shadow2:boxShadow(200, $shadow);
+$shadow3:boxShadow(100, $shadow);
+#star{  
+    width: 1px;
+    height: 1px;
+    background-color: transparent;
+    position: absolute;
+    z-index: -10;
+    box-shadow: $shadow1;
+    animation: star_anti 50s linear infinite;
+    
+}
+#star:after {
+    content: " ";
+    width: 1px;
+    height: 1px;
+    background: transparent;    
+    position: absolute;
+    top: 101vh;
+    box-shadow: $shadow1;    
+}
+
+#star2{  
+    width: 2px;
+    height: 2px;
+    background-color: transparent;
+    position: absolute;
+    z-index: -10;  
+    box-shadow: $shadow2;
+    animation: star_anti 100s linear infinite;
+    
+}
+#star2:after {
+    content: " ";
+    width: 2px;
+    height: 2px;
+    background: transparent;    
+    position: absolute;
+    top: 101vh;
+    box-shadow: $shadow2;    
+}
+
+#star3{  
+    width: 3px;
+    height: 3px;
+    background-color: transparent;
+    position: absolute;
+    z-index: -10;  
+    box-shadow: $shadow3;
+    animation: star_anti 150s linear infinite;
+    
+}
+#star3:after {
+    content: " ";
+    width: 3px;
+    height: 3px;
+    background: transparent;    
+    position: absolute;
+    top: 101vh;
+    box-shadow: $shadow3;    
+}
+@keyframes star_anti {
+  0% {
+    transform: translateY(0px)
+  }
+  100% {
+    transform: translateY(-101vh)
+  }
+}
+
+/*流星*/
+@for $i from 1 through $n {
+    $v: random(100) + 10; // left
+    $h: random(30) + 10 ; // top
+    $mw: random(20)+5;
+    $d: random(90)/10 + 5; // 秒數
+    .meteor-#{$i} {
+      position: absolute;
+      top: $h *1%;
+      left: $v*1%;
+      width: $mw+vw;
+      height: 0.2vh;
+      transform: rotate(-45deg);
+      background-image: linear-gradient(to right, #fff, rgba(255,255,255,0));
+      opacity:0;
+      animation: meteor $d+s linear  infinite $d+s;
+      display: grid;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 0.5vw;
+        height: 1vh;
+        border-radius: 50%;
+        margin-top: -2px;
+        background: rgba(#fff,.7);
+        box-shadow: 0 0 15px 3px #fff;
+        animation: shine $d+s linear  infinite $d+s;
+      }
+      
+    }
+  }
+  
+  @keyframes meteor {
+    0% {
+      opacity: 1;
+      margin-top: -300px;
+      margin-right: -300px;
+    }
+    15% {
+      margin-top: 1000px;
+      margin-left: -1200px;
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes shine {
+    0% {
+      width: 0.5vw;
+      height: 1vh;
+    }
+    25% {
+      width: 0.2vw;
+      height:0.5vh;
+    }
+    50% {
+      width: 0.5vw;
+      height: 1vh;
+    }
+    75% {
+      width: 0.2vw;
+      height:0.5vh;
+    }
+    100% {      
+      width: 0.5vw;
+      height: 1vh;
+    }
+  }
