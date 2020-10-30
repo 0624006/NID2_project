@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- 設定手機上的網頁畫面寬度 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-tofit=no, user-scalable=no">
+
+    <!-- 不管什麼 IE 版本都可執行 -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+    <!-- IE可能不見得有效 -->
+    <META HTTP-EQUIV="EXPIRES" CONTENT="0">
+    <!-- 設定成馬上就過期 -->
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <!-- 與第一行是同樣的作用 -->
+
+    <!-- 使用 bootstrap 語法 -->
+    <link href="./bootstrap/bootstrap_4.5.0.min.css" rel="stylesheet" type="text/css" />
+
+    <title>嘻哈義隆 ~ PARTY ELAN ~ </title>
+
+    <!--CSS & JS  -->
+    <link href="./css/lottery1/style_lottery1.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id='loading'>
+        <p>Loading...</p>
+    </div>
+    <div class="div_count">
+        <div class="col-12 num"><input id="number" type="number" value="1" min="1" max="9999" /></div>
+        <div class="col-12 sub"><input id="submit" type="button" class="btn" data-toggle="modal" data-target="#myModal"
+                data-whatever="submit" /></div>
+    </div>
+    <div class="bottom_btn">
+        <input type="button" value="《 Back" class="btn" id="btn1" onclick="window.location = './index.html';">
+        <input type="button" value="NEXT" class="btn" id="btn_next" data-toggle="modal" data-target="#myModal"
+            data-whatever="next">
+        <input type="button" value="NEW" class="btn" id="btn_new" data-toggle="modal" data-target="#myModal"
+            data-whatever="new">
+    </div>
+    <div class="container">
+        <div class="row row-cols-5" id="lottery">
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <p id="md_content">Some text in the modal.</p>
+                    <button type="button" class="btn btn-outline-success" id="bt_suc" data-dismiss="modal">Yes</button>
+                    <button type="button" class="btn btn-outline-danger" id="btn_clo" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--尾-->
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./bootstrap/bootstrap_4.5.0.min.js"></script>
+    <script src="./bootstrap/bootstrap_4.5.0.bundle.min.js"></script>
+    <script src="./bootstrap/popper_1.14.7.min.js"></script>
+
+    <script src="./js/lottery_1.js" defer></script>
+    <!--
+            [ELAN] MIS 林鈺真 #3323
+        -->
+</body>
+
+</html>
