@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- 設定手機上的網頁畫面寬度 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-tofit=no, user-scalable=no">
+
+    <!-- 不管什麼 IE 版本都可執行 -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+    <!-- IE可能不見得有效 -->
+    <META HTTP-EQUIV="EXPIRES" CONTENT="0">
+    <!-- 設定成馬上就過期 -->
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <!-- 與第一行是同樣的作用 -->
+
+    <!-- 使用 bootstrap 語法 -->
+    <link href="./bootstrap/bootstrap_4.5.0.min.css" rel="stylesheet" type="text/css" />
+
+    <title>嘻哈義隆 ~ PARTY ELAN ~ </title>
+
+    <!--CSS & JS  -->
+    <link href="./css/lottery2/style_lottery2.css" rel="stylesheet" type="text/css" />
+    <link href="./css/lottery2/style_lottery2_stars.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id='loading'>
+        <p>Loading...</p>
+    </div>
+    <div id="meteor"></div>
+    <div id="star"></div>
+    <div id="star2"></div>
+    <div id="star3"></div>
+    <div class='container wrapper'>
+        <div class='col-12 card_msg'>
+            <div class="flip3D" style="--duration:0s; --durationC:2s;">
+                <div class="back">
+                    <div>
+                        <p></p>
+                        <input class="btn" type="button" value="Redraw" id="btn_redraw" />
+                        <input class="btn" type="button" value="Next" id="btn_next" />
+                    </div>
+                </div>
+                <div class="front"></div>
+            </div>
+        </div>
+        <div class='ul_bg'>
+            <ul>
+                <li class='constellation' id="Aries"></li>
+                <li class='constellation' id="Taurus"></li>
+                <li class='constellation' id="Gemini"></li>
+                <li class='constellation' id="Cancer"></li>
+                <li class='constellation' id="Leo"></li>
+                <li class='constellation' id="Virgo"></li>
+                <li class='constellation' id="Libra"></li>
+                <li class='constellation' id="Scorpio"></li>
+                <li class='constellation' id="Sagittarius"></li>
+                <li class='constellation' id="Capricorn"></li>
+                <li class='constellation' id="Aquarius"></li>
+                <li class='constellation' id="Pisces"></li>
+                <li class='start'></li>
+            </ul>
+        </div>
+        <div class="col-12 click">
+            <input type="button" value="《 Back" class="btn" id="btn1" onclick="window.location = './index.html';">
+        </div>
+    </div>
+
+
+    <!--尾-->
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./bootstrap/bootstrap_4.5.0.min.js"></script>
+    <script src="./bootstrap/bootstrap_4.5.0.bundle.min.js"></script>
+    <script src="./bootstrap/popper_1.14.7.min.js"></script>
+    <script src="./js/lottery_2.js" defer></script>
+
+    <!--
+            [ELAN] MIS 林鈺真 #3323
+        -->
+</body>
+
+</html>
