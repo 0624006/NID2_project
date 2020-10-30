@@ -1,0 +1,70 @@
+@import '../style_All';
+$bg:#1c2a3f;
+$elan_w: var(--elan_w);
+$elan_h: 20;
+$btn_w: var(--btn_w);
+
+body{
+    // background: linear-gradient(#1c2a3f 0%, #1c2a3f 90%, #3f1d1d 100%);
+    background-image: url('../../asset/CBG.svg');
+    background-size: cover;
+}
+
+
+.container {
+	padding: 0px 0px; 
+	max-width: $whole_width;
+    height: $whole_height;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+    >.btn_type{
+        z-index: 10;
+        width: auto;
+        height: auto;
+        bottom: 20vh;
+        position: fixed;
+        text-align: start;
+        left: 34vw; 
+        >.btn{
+            // background: white;
+            width: $btn_WH;
+            height: $btn_WH;
+            font-size: $fontsize*4;            
+            padding: 0.1em 0.1em 0.1em 0em;
+            margin: 0 0 0.3em 0;
+            color: black;
+            transition: 0.5s; 
+            &:nth-child(1){
+                margin-right: 1em;
+            }
+            &:nth-child(4){
+                margin-right: 1em;
+            }
+            &:hover{
+                color: rgba(255,255,255,0.7);
+                text-shadow: 0px 0px 5px white;
+                box-shadow: inset 6.5em 0 0 0.01px black;
+            }
+            &:link, &:visited, &:focus, &:active{      
+                text-decoration: none;        
+                color: rgba(255,255,255,0.7);
+            }
+            
+        }
+    }
+    
+}
+
+.bottom_btn{
+    position: absolute;
+    bottom: 5vh;
+    z-index: 999;
+    left: 7%;
+    >#btn_clear{
+        font-size: 1.5em;
+        color: white;
+        background: transparent;       
+    }
+}
