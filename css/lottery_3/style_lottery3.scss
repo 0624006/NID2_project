@@ -1,0 +1,148 @@
+@import '../style_All';
+$width: 20vh;
+$height:20vh;
+$duration: var(--duration);
+$targetDeg: var(--targetDeg);
+$currentDeg: var(--currentDeg);
+$rollBackDeg: var(--rollBackDeg);
+$background_color: #1C2A3F;
+
+*{
+    justify-content: center;
+}
+
+#slotsFrame{
+    display: flex;
+    position: absolute;
+    bottom: 42.5vh;
+    right: 1vh;
+    z-index: -1;
+}
+
+.s_container{   
+    transform-style: preserve-3d;
+    perspective: 99999px; 
+    display: flex;
+    position: relative;
+    margin-right: 23vh;
+    transform: rotateX($currentDeg);
+    &.autoTurn{
+        transform: rotateX($targetDeg);
+        transition: $duration cubic-bezier(0.1, 0, 0, $rollBackDeg);
+    }
+    &:nth-child(5){
+        margin-right: 0px;
+    }
+}
+
+.gift{
+    display: flex;
+    position: absolute;
+    width: 25vh;
+    height: 25vh;
+    border: 0.5px solid black;
+    background: white;
+    font-size: $fontsize*8;
+}
+
+.btn{
+    background: white;
+    width: $btn_WH;
+    height: $btn_WH;
+    font-size: $fontsize*2.5;
+}
+
+/*back*/
+.col-12.click{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: $nextBtn_height;
+    > input{    
+        position: absolute;
+        left: 5%;
+        color: white;
+        background: transparent;
+        border: 1px solid white;
+        z-index: 11;
+    }
+}
+
+.bg{   
+    position: absolute;
+    width: 100%;    
+    height: 100%;
+    display: flex;
+    z-index: -10;    
+    >.card_msg{     
+        z-index: -10;   
+        opacity: 0;
+        position:relative; 
+        width: 100%;
+        height: 100%;
+        background: url('../../asset/msg.svg');
+        background-size: cover;
+        >div{
+            display: block;
+            position:absolute; 
+            width: 46vw;
+            height: 48vh;
+            right: 19vw;
+            top: 27vh;
+            > p{
+                font-size: $fontsize*5.5;
+                display: flex;
+                width: 100%;
+                height: 80%;
+                text-align: start;
+                font-weight: bold;
+            }
+            >input{
+                background: transparent;
+                border: transparent;
+                color: gray;
+                font-size: $fontsize*4;        
+                &:hover{
+                    text-shadow: 0px 0px 5px lightslategray;
+                }
+                &#btn_redraw{
+                    margin-right: 4rem;
+                }
+            }
+        }        
+    }
+    @keyframes card_msg{
+        0%{
+            z-index: 12;
+            transform: scale(0);
+            opacity: 0;
+        }
+        100%{
+            z-index: 12;
+            transform: scale(1);	
+            opacity: 1;
+        }
+    }
+    @keyframes card_bg{
+        0%{
+            z-index: 11;
+            opacity: 0;
+        }
+        100%{
+            z-index: 11;
+            opacity: 1;
+            background: rgba($color: white, $alpha: 0.3);
+        }
+    }
+}
+
+.slot_front{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 10;
+}
+
+#bar{
+    cursor: pointer; 
+}
