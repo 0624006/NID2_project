@@ -1,0 +1,288 @@
+@import '../style_All';
+
+body{
+    background-image: url('../../asset/CBG.svg');
+    background-size: cover;
+}
+
+.container {
+	max-width: $whole_width;
+    height:$container_height;
+    position: relative;
+    padding: 5vh 10vh 5vh 10vh;
+}
+
+#lottery{
+    // align-items: start;
+    height: $whole_height;
+    background: rgba(255,255,255,0.8);
+}
+
+.row-cols-5>* {   
+    max-width: 16vw;  
+}
+
+.col{    
+    margin: 1%;
+    font-size: $fontsize*3;
+    padding: 0.5% 1%;
+    height: 37.9vh;
+    justify-content: center;
+    opacity: 0;
+    transform: translate(5vh, -50vh) rotate(-180deg);
+    &.autoshow{
+        transform-origin: center center;
+        animation: autoshow 0.7s ease forwards $duration;  
+    }
+    @keyframes autoshow{
+        0%{
+            transform: translate(5vh, -50vh) rotate(-180deg) scale(0);
+            filter:blur(10px);
+        }
+        80%, 85%{
+            opacity: 1;
+            transform: translate(0px, 0px) rotate(0deg) scale(1.2);
+            filter:blur(2px);
+        }
+        100% {                   
+            opacity: 1;            
+            transform: translate(0px, 0px) rotate(0deg) scale(1);
+            filter:blur(0px);
+        }
+    }    
+}
+
+.btn{
+    background: white;
+    width: $btn_WH;
+    height: $btn_WH;
+    font-size: $fontsize*2.5;
+}
+
+.bottom_btn{
+    position: absolute;
+    bottom: 0;
+    height: $nextBtn_height;
+    width: $whole_width;    
+    >#btn1{
+        color: black;
+        background: transparent;
+        border: 1px solid black;
+        width: $btn_WH;
+        position: absolute;
+        left: 5%;
+        z-index: 10;
+    }
+}
+
+.flip3D > div {
+    box-shadow: -5px 5px lightsteelblue;
+}
+.flip3D > .front{
+    position:absolute;    
+	transform: perspective( 9999px ) rotateY( 0deg );    
+    width: 90%; 
+    height: 90%; 
+    
+	backface-visibility: hidden;
+	animation: front 0.5s linear forwards $durationC;
+}
+.flip3D > .back{
+    position:absolute;    
+	transform: perspective( 9999px ) rotateY( 180deg );
+    width:90%; 
+    height:90%;    
+	backface-visibility: hidden;
+    animation: back 0.5s linear forwards $durationC;
+    >p{
+        display: flex;
+        padding-bottom: 5%;
+        margin: 0 0;
+        height: 79.5%;
+        width: 100%;
+        justify-content: center;
+        align-items: flex-end;
+        text-align: start;
+        font-size: $fontsize*2.5;
+        font-weight:bold;
+    }
+    >input{
+        width: $btn_WH;
+        font-size: $fontsize*2;
+        background: transparent;
+        border: transparent;
+        color: black;              
+    }
+}
+@keyframes front{    
+    100%{
+        transform: perspective( 9999px ) rotateY( -180deg );
+    } 
+}
+@keyframes back{	
+    100%{
+        transform: perspective( 9999px ) rotateY( 0deg );
+    } 
+}
+
+.div_count{
+    position: absolute;
+    z-index: 10;
+    width: $whole_width;   
+    height: $whole_height;
+    // display: flex;
+    justify-content: center;
+    opacity: 1;
+    font-size: $fontsize*4;
+    background-image: url('../../asset/BG.svg');
+    background-size: cover;
+    >.num{
+        position: absolute;
+        bottom: 28.8vh;
+        >#number{
+            width: 20.5vw;
+            height: 6.8vh;
+            background: transparent;
+            border: transparent;
+        }
+    }
+    >.sub{
+        position: absolute;
+        bottom: 19.5vh;
+        >#submit{
+            width: 27vw;
+            height: 8vh;
+            background: transparent;
+            border: transparent;
+        }
+    }
+    &.btnS{
+        animation: btnS 0.5s linear forwards;
+    }
+    @keyframes btnS {
+        100%{
+            opacity: 0;
+            z-index: -10;
+        }
+    }
+}
+
+.modal-content{
+    display: unset;
+}
+
+#md_content>h4{
+    line-height: 3rem;;
+    >p{
+        text-align: start;
+        padding-left: 33%;
+    }
+}
+
+@for $i from 1 through 10 {
+    @if $i %2 == 0 {
+        .flip3D:nth-child(#{$i}){
+            >.front{
+                background-image: url('../../asset/front_1.svg');
+                background-size: cover;
+            }
+            >.back{
+                background-image: url('../../asset/lottery_4/back_L4_2.svg');
+                background-size: cover;
+            }
+        }
+    }@else{
+        .flip3D:nth-child(#{$i}){
+            >.front{
+                background-image: url('../../asset/front_2.svg');
+                background-size: cover;
+            }
+            >.back{
+                background-image: url('../../asset/lottery_4/back_L4_2.svg');
+                background-size: cover;
+            }
+        }
+    }
+    
+}
+
+.redraw_hover{
+    &:hover{
+        text-shadow: 0px 0px 4px lightslategray;
+    }
+}
+
+.victory_hover{
+    &:hover{
+        text-shadow: 0px 0px 4px red;
+    }
+}
+
+.bg{   
+    position: absolute;
+    width: 100%;    
+    height: 100%;
+    display: flex;
+    z-index: -10;    
+    >.card_msg{     
+        z-index: -10;   
+        opacity: 0;
+        position:relative; 
+        width: 100%;
+        height: 100%;
+        background: url('../../asset/msg.svg');
+        background-size: cover;
+        >div{
+            display: block;
+            position:absolute; 
+            width: 46vw;
+            height: 48vh;
+            right: 19vw;
+            top: 27vh;
+            > p{
+                font-size: $fontsize*5.5;
+                display: flex;
+                width: 100%;
+                height: 100%;
+                text-align: start;
+                font-weight: bold;
+                justify-content: center;
+            }
+            >input{
+                background: transparent;
+                border: transparent;
+                color: gray;
+                font-size: $fontsize*4;
+                position: absolute;
+                top: 20.5vh;
+                right: -16vh;
+                &:hover{
+                    text-shadow: 0px 0px 5px lightslategray;
+                }
+            }
+        }        
+    }
+    @keyframes card_msg{
+        0%{
+            z-index: 12;
+            transform: scale(0);
+            opacity: 0;
+        }
+        100%{
+            z-index: 12;
+            transform: scale(1);	
+            opacity: 1;
+        }
+    }
+    @keyframes card_bg{
+        0%{
+            z-index: 11;
+            opacity: 0;
+        }
+        100%{
+            z-index: 11;
+            opacity: 1;
+            background: rgba($color: white, $alpha: 0.6);
+        }
+    }
+}
