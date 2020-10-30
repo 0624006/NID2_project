@@ -1,0 +1,68 @@
+$whole_width: 100%;
+$whole_height: 100%;
+$body_height: 100vh;
+$fontsize:1vh;
+$nextBtn_height: 10%;
+$container_height: $whole_height - $nextBtn_height;
+$btn_WH:fit-content;
+
+$duration: var(--duration);
+$durationC: var(--durationC);
+
+*{
+    padding: 0 0;
+    margin: 0 0;
+    box-sizing: border-box;
+	// justify-content: center;
+    align-items: center; 
+	text-align: center;
+    font-family: Verdana, Microsoft JhengHei;
+}
+
+body{
+    width: $whole_width;
+    height: $body_height;
+    background-color: white;
+	overflow:hidden;
+	overflow-x:hidden;
+}
+
+.col-12{
+    padding: 0 0;
+    margin: 0 0;
+}
+
+.container {
+	margin: 0px 0px;
+	padding: 0px 0px;
+	max-width: 100%;
+    height:100%;
+    position: relative;
+}
+
+.wrapper {
+	display: flex; 
+	flex-direction: column;
+	/* 豎軸方向 */
+}
+
+.btn:focus,.btn:active:focus,
+.btn.active:focus,.btn.focus,
+.btn:active.focus,.btn.active.focus {  
+    outline: none;   
+    border-color: transparent;   
+    box-shadow:none!important;
+}
+
+#loading {
+	background-color: #1C2A3F;
+	font-size: 3vh;
+    color: white;
+    position: absolute;
+    z-index: 9999;
+    max-width: 100%;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
