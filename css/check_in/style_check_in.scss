@@ -1,0 +1,107 @@
+$emp_height:30vh;
+$empList_height:100vh-$emp_height;
+$empList_bottom:5vh;
+
+*{
+    padding: 0 0;
+    margin: 0 0;
+    box-sizing: border-box;
+	justify-content: center;
+    align-items: center;
+	text-align: center;
+    font-family: Verdana, Microsoft JhengHei;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: #1C2A3F;
+	overflow:hidden;
+    overflow-x:hidden;
+}
+
+.container {
+	margin: 0px 0px;
+	padding: 0px 0px;
+	max-width: 100%;
+    height:100%;
+    position: relative;
+}
+
+.wrapper {
+	display: flex; 
+	flex-direction: column;
+	/* 豎軸方向 */
+}
+
+div{
+    color: white;
+}
+
+.emp, .emp_title{
+    position: absolute;
+    
+}
+
+.emp{
+    height: $emp_height;
+    top: 0;
+    display: flex;
+    >span{
+        font-size: ($emp_height/3) - 0.5vh;        
+    }
+    
+}
+
+.emp_title{
+    padding-right: 5vw;
+    padding-left: 5vw;
+    height: $empList_height - $empList_bottom;
+    bottom: 9vh;
+
+    > span{
+        width: 100%;
+        height: $empList_bottom*2;
+        display: flex;
+        align-items: flex-end;
+        font-size: $empList_bottom*2/2;
+        border-bottom: 5px solid white;
+    }
+}
+
+.emp_list{
+    justify-content: flex-start;
+    font-size: $empList_bottom*2/3;
+    padding-left: 5%;
+    >span{
+        display: flex;
+        height:($empList_height - $empList_bottom*3) / 8;
+        justify-content: flex-start;
+    }
+    > span:nth-child(1){
+        color: yellow;
+    }
+}
+
+
+.submit{
+    position: absolute;
+    right: 5%;
+    bottom: 5%;    
+    z-index: -10;
+    >#btn_add{
+        font-size: 1.5rem;
+    }
+    >#txt_add{
+        font-size: 1.5rem;
+        &:focus{
+            outline: none;
+        }
+    }
+}
+
+#btn_add,#txt_add{
+    background: transparent;
+    border: transparent;
+    color: transparent;
+}
