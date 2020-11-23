@@ -16,13 +16,20 @@
     <title></title>
 
     <!--CSS & JS  -->
-    <link href="./css/list/style_show_list.css" rel="stylesheet" type="text/css" />
+    <link href="./css/style_show_list.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <div class="container">
-        <div class="col-12" id="list_tittle">2020 嘻哈義隆獲獎名單</div>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-pause="false" data-interval="5000">            
+        <div class="col-12" id="list_tittle">2020 義隆電子耶誕獲獎名單</div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-pause="false"
+            data-interval="3000">
+            <ol class="carousel-indicators">
+                <!-- <li data-target="#carouselExampleIndicators" data-slide-to="0"
+                    class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
+            </ol>
             <div id="inner" class="carousel-inner">
                 <!-- <div class="carousel-item active">
                     <div class="col-12 row  row-cols-3" id="list">
@@ -60,7 +67,7 @@
                         <div>獎項：X獎-$1000 <br>部門：XXXX<br>工號：00000<br>姓名：ＸＸＸＸ</div>
                         <div>獎項：X獎-$1000 <br>部門：XXXX<br>工號：00000<br>姓名：ＸＸＸＸ</div>
                         <div>獎項：X獎-$1000 <br>部門：XXXX<br>工號：00000<br>姓名：ＸＸＸＸ</div>
-                        
+
                     </div>
                 </div> -->
             </div>
@@ -68,23 +75,24 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog" data-backdrop="static" >
-        <div class="modal-dialog modal-dialog-centered">
-            <!-- Modal content-->
+    <!-- <div class="modal fade" id="myModal" role="dialog" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">            
             <div class="modal-content">
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <p id="md_content">Some text in the modal.</p>
-                    <button type="button" class="btn btn-success " id="bt_suc" data-dismiss="modal">Confirm</button>
-                    <button type="button" class="btn btn-danger" id="btn_clo"data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success " id="bt_suc" data-dismiss="modal">Yes</button>
+                    <button type="button" class="btn btn-danger" id="btn_clo" data-dismiss="modal">No</button>
                 </div>
             </div>
 
         </div>
-    </div>
+    </div> -->
 
     <div id="btn_bottom" class="col-12">
-        <input type="button" class="btn" value="— 最新更新時間： —" data-toggle="modal" data-target="#myModal" data-whatever="stop">
+        <p>— 更新時間： —</p>
+        <!-- <input type="button" class="btn" value="— 更新時間： —" data-toggle="modal" data-target="#myModal"
+            data-whatever="stop"> -->
     </div>
     <!--尾-->
     <script src="./js/jquery-3.4.1.min.js"></script>
